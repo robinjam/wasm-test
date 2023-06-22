@@ -4,7 +4,7 @@
     const module = await WebAssembly.instantiateStreaming(
         fetch("factorial.wasm")
     )
-    const result = module.instance.exports.factorial(5)
-    document.write(`5! = ${result}`)
+    const { factorial } = module.instance.exports
+    document.write(`5! = ${factorial(5)}`)
 </script>
 </html>
